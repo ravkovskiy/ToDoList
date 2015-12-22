@@ -6,13 +6,20 @@
  
   <link rel="stylesheet" href="css/app.css">
   <script src="http://code.angularjs.org/1.1.4/angular.min.js"></script>
+  <script src="controllers.js"></script>
 </head>
-<body>
+<body ng-controller='DealListCtrl'>
  
   <h1>Список дел</h1>
   <div>
   	<input placeholder="Что нужно сделать?"></input>
   </div>
- 
+  <div>
+  	<ul>
+  		<li ng-repeat='deal in deals'>
+  			{{deal}}
+  		</li>
+  	</ul>
+  </div>
 </body>
 </html>
