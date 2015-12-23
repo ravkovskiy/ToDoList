@@ -12,12 +12,15 @@
  
   <h1>Список дел</h1>
   <div>
+    <input type='checkbox'>
   	<input id='textInput' placeholder="Что нужно сделать?" ng-keydown='eventsCtrl($event)'></input>
   </div>
   <div>
-  	<ul>
+  	<ul type='none'>
   		<li ng-repeat='deal in deals'>
+        <input type='checkbox'>
   			{{deal}}
+        <input type='checkbox'>
   		</li>
   	</ul>
   </div>
