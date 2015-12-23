@@ -1,1 +1,35 @@
-h1 {color: blue}
+
+div {width: 600px}
+.todo-list li:hover .destroy {display: block;}
+
+.todo-list li .destroy {
+    display: none;
+    position: absolute;
+    top: 6px;
+    right: 10px;
+    bottom: 0;
+    width: 20px;
+    height: 20px;
+    margin: auto 0;
+    font-size: 30px;
+    color: #cc9a9a;
+    margin-bottom: 11px;
+    transition: color 0.2s ease-out;
+}
+
+.todo-list li {
+    position: relative;
+    font-size: 26px;
+    border-bottom: 1px solid #adcdbd;
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+
+.todo-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;}
