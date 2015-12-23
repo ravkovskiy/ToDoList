@@ -3,26 +3,50 @@
 <head>
   <meta charset="utf-8">
   <title>ToDoList</title>
- 
+ <script src="../../bootstrap/jquery.js" type="text/javascript"></script>
   <link rel="stylesheet" href="css/app.css">
+  <link rel='stylesheet' href='../../bootstrap/css/bootstrap.css'>
   <script src="http://code.angularjs.org/1.1.4/angular.min.js"></script>
+  <script src="../../bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+
   <script src="controllers.js"></script>
 </head>
 <body ng-controller='DealListCtrl'>
- 
-  <h1>Список дел</h1>
-  <div>
+ <!-- <h1>Список дел</h1>
+    <div>
     <input type='checkbox'>
-  	<input id='textInput' placeholder="Что нужно сделать?" ng-keydown='eventsCtrl($event)'></input>
+    <input id='textInput' placeholder="Что нужно сделать?" ng-keydown='eventsCtrl($event)'></input>
   </div>
   <div>
-  	<ul type='none'>
-  		<li ng-repeat='deal in deals'>
+    <ul type='none'>
+      <li ng-repeat='deal in deals'>
         <input type='checkbox'>
-  			{{deal}}
+        {{deal}}
         <input type='checkbox'>
-  		</li>
-  	</ul>
+      </li>
+    </ul>
   </div>
+  </div>
+  <div class="col-xs-3"></div>
+  </div>
+-->
+
+  <div class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Название модали</h4>
+      </div>
+      <div class="modal-body">
+        <p>One fine body&hellip;</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+        <button type="button" class="btn btn-primary">Сохранить изменения</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 </body>
 </html>
