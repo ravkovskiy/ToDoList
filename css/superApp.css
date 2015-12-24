@@ -1,1 +1,2 @@
-div {border: 1px solid red;}
+table, tr, td {border: 2px solid red}
+ table {width: 43%}
