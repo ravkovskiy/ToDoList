@@ -1,6 +1,8 @@
-table, tr, td {border: 2px solid red}
- table {width: 43%}
+ tr, td {border-bottom: 1px solid gray}
+ table {width: 43%; border: 1px solid gray}
  tr {height: 40px;}
+ .close {font-size: 40px; display: none; font-weight: 200; position: relative; left: -20px}
+ tr:hover .close {display: block;}
 /* Cначала обозначаем стили для IE8 и более старых версий
 т.е. здесь мы немного облагораживаем стандартный чекбокс. */
 .checkbox {
@@ -63,6 +65,7 @@ table, tr, td {border: 2px solid red}
   background: #9E6;
 }
 /* Показываем получение фокуса. */
-.close {font-size: 30px;}
-.close:hover {color: red}
+
+.close:hover {color: #f66}
+
 
