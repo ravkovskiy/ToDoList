@@ -13,24 +13,28 @@ function DealListCtrl ($scope) {
 			for(var i=0; i < $scope.deals.length; i++) {
 				var check=document.getElementById('checkbox'+i);
 				check.checked=true;
-				check.parentNode.nextSibling.nextSibling.setAttribute('style','text-decoration:line-through; color:#ddd; transition: all .6s;');
+				check.parentNode.nextSibling.nextSibling.setAttribute('style',
+					'text-decoration:line-through; color:#ddd; transition: all .6s;');
 			}
 		}
 		else {
 			for(var i=0; i < $scope.deals.length; i++) {
 				var check=document.getElementById('checkbox'+i);
 				check.checked=false;
-				check.parentNode.nextSibling.nextSibling.setAttribute('style','text-decoration:none; color:black; transition: all .6s;');
+				check.parentNode.nextSibling.nextSibling.setAttribute('style',
+					'text-decoration:none; color:black; transition: all .6s;');
 			}
 		}
 
 	}
 	$scope.checkedCtrl=function($event) {
 		if($event.currentTarget.checked == false) {
-			document.getElementById($event.currentTarget.id).parentNode.nextSibling.nextSibling.setAttribute('style','text-decoration:none; color:black; transition: all .6s;');
+			document.getElementById($event.currentTarget.id).parentNode.nextSibling.nextSibling.setAttribute('style',
+				'text-decoration:none; color:black; transition: all .6s;');
 		}
 		if($event.currentTarget.checked == true) {
-			document.getElementById($event.currentTarget.id).parentNode.nextSibling.nextSibling.setAttribute('style','text-decoration:line-through; color:#ddd; transition: all .6s;');
+			document.getElementById($event.currentTarget.id).parentNode.nextSibling.nextSibling.setAttribute('style',
+				'text-decoration:line-through; color:#ddd; transition: all .6s;');
 
 		var mass=[];
 		
@@ -40,7 +44,13 @@ function DealListCtrl ($scope) {
 		if(mass.indexOf(false) == -1) document.getElementById('checkboxAll').checked=true;
 		}
 
-		if($event.currentTarget.checked == false && document.getElementById('checkboxAll').checked ==true) document.getElementById('checkboxAll').checked=false;
+		if($event.currentTarget.checked == false && document.getElementById('checkboxAll').checked ==true) {
+			document.getElementById('checkboxAll').checked=false;
+		}
+	}
+
+	$scope.closeCtrl=function($event, deal) {
+		$scope.deals.splice($scope.deals.indexOf(deal),1);
 	}
 }
 
