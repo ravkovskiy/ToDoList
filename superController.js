@@ -29,19 +29,19 @@ function DealListCtrl ($scope) {
 	}
 	$scope.checkedCtrl=function($event) {
 		if($event.currentTarget.checked == false) {
-			document.getElementById($event.currentTarget.id).parentNode.nextSibling.nextSibling.setAttribute('style',
+			$event.currentTarget.parentNode.nextSibling.nextSibling.setAttribute('style',
 				'text-decoration:none; color:black; transition: all .6s;');
 		}
 		if($event.currentTarget.checked == true) {
-			document.getElementById($event.currentTarget.id).parentNode.nextSibling.nextSibling.setAttribute('style',
+			$event.currentTarget.parentNode.nextSibling.nextSibling.setAttribute('style',
 				'text-decoration:line-through; color:#ddd; transition: all .6s;');
 
-		var mass=[];
+			var mass=[];
 		
-		for(var i=0; i < $scope.deals.length; i++) {
-			mass.push(document.getElementById('checkbox'+i).checked);
-		};
-		if(mass.indexOf(false) == -1) document.getElementById('checkboxAll').checked=true;
+			for(var i=0; i < $scope.deals.length; i++) {
+				mass.push(document.getElementById('checkbox'+i).checked);
+			};
+			if(mass.indexOf(false) == -1) document.getElementById('checkboxAll').checked=true;
 		}
 
 		if($event.currentTarget.checked == false && document.getElementById('checkboxAll').checked ==true) {
@@ -50,7 +50,20 @@ function DealListCtrl ($scope) {
 	}
 
 	$scope.closeCtrl=function($event, deal) {
+		var mass=[];
+		
+		for(var i=0; i < $scope.deals.length; i++) {
+			mass.push(document.getElementById('checkbox'+i).checked);
+		};
+
+		mass.splice($scope.deals.indexOf(deal),1);
+
 		$scope.deals.splice($scope.deals.indexOf(deal),1);
+
+
+		if(mass.indexOf(false) == -1 && mass.length > 0) document.getElementById('checkboxAll').checked=true;
+
+
 	}
 }
 
