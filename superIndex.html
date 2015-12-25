@@ -3,7 +3,7 @@
 <head>
 <meta charset='utf-8'>
 
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.29/angular.min.js"></script>
 <!-- Latest compiled and minified CSS -->
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -13,8 +13,10 @@
 
 <link rel="stylesheet" type="text/css" href="css/superApp.css">
 
+<script src="superController.js"></script>
+
 </head>
-<body>
+<body ng-controller='DealListCtrl'>
 
 <table align='center'>
   <tr>
@@ -22,14 +24,14 @@
       <input type="checkbox" class="checkbox" id="checkboxAll" />
       <label for="checkboxAll"></label>
     </td>
-    <td colspan='2'>2</td>
+    <td colspan='2' width='100%'><input id='textInput' placeholder="Что нужно сделать?" ng-keydown='eventsCtrl($event)'></input></td>
   </tr>
-  <tr>
+  <tr ng-repeat='deal in deals'>
     <td>
-      <input type="checkbox" class="checkbox" id="checkbox" />
-      <label for="checkbox"></label>
+      <input type="checkbox" class="checkbox" id="checkbox{{deals.indexOf(deal)}}" />
+      <label for="checkbox{{deals.indexOf(deal)}}"></label>
     </td>
-    <td>sdf</td>
+    <td>{{deal}}</td>
     <td width='30px'>
       <button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
     </td>
