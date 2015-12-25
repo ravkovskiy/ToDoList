@@ -7,5 +7,9 @@ function DealListCtrl ($scope) {
 			textInput.value='';
 		}
 	}
+	$scope.checkedCtrl=function($event, chec) {
+		if($event.currentTarget.id == 'checkboxAll') alert(1);
+		alert(chec.checked);
+	}
 }
 
