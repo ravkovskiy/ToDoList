@@ -31,7 +31,15 @@ function DealListCtrl ($scope) {
 		}
 		if($event.currentTarget.checked == true) {
 			document.getElementById($event.currentTarget.id).parentNode.nextSibling.nextSibling.setAttribute('style','text-decoration:line-through; color:#ddd');
+
+		var mass=[];
+		
+		for(var i=0; i < $scope.deals.length; i++) {
+			mass.push(document.getElementById('checkbox'+i).checked);
+		};
+		if(mass.indexOf(false) == -1) document.getElementById('checkboxAll').checked=true;
 		}
+
 		if($event.currentTarget.checked == false && document.getElementById('checkboxAll').checked ==true) document.getElementById('checkboxAll').checked=false;
 	}
 }
