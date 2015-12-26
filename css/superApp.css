@@ -90,8 +90,8 @@
 /* Показываем получение фокуса. */
 
 .close:hover {
-  color: #f66;
-  transition: all .3s;
+  color: #e10D00;
+  transition: all .6s;
   cursor: default;
 }
 .close:focus {
@@ -124,3 +124,4 @@
   color: #04819E;
   text-shadow: none;
 }
+#textInput {background: #fed}
