@@ -24,7 +24,7 @@
    display: none;
    font-weight: 200;
    position: relative;
-   left: -10px
+   left: -10px;
     }
  tr:hover .close {
    display: inline;
@@ -102,5 +102,7 @@
   transition: all .3s;
   cursor: default;
 }
-
+   .close:focus {
+    outline: none;
+   }
 

@@ -63,7 +63,7 @@ function DealListCtrl ($scope) {
 
 		if(mass.indexOf(false) == -1 && mass.length > 0) document.getElementById('checkboxAll').checked=true;
 
-		
+		return false;
 	}
 }
 
