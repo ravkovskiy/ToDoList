@@ -6,7 +6,11 @@ function DealListCtrl ($scope) {
 			.unshift(textInput.value);
 			textInput.value='';
 			document.getElementById('checkboxAll').checked=false;
-		}
+			if(document.getElementById('img').style != 'display: none') {
+				document.getElementById('img').setAttribute('style', 'display: none');
+			}
+		}	
+
 	}
 	$scope.checkedAllCtrl=function($event) {
 		if($event.currentTarget.checked == true) {
@@ -63,7 +67,9 @@ function DealListCtrl ($scope) {
 
 		if(mass.indexOf(false) == -1 && mass.length > 0) document.getElementById('checkboxAll').checked=true;
 
-		return false;
+		if($scope.deals.length == 0) {
+			document.getElementById('img').setAttribute('style', '');
+		}
 	}
 }
 
