@@ -3,7 +3,7 @@ function DealListCtrl ($scope) {
 	$scope.eventsCtrl=function($event) {
 		if($event.keyCode == '13' && !textInput.value == '' && 
 			$scope.deals.indexOf(textInput.value) == -1) {$scope.deals
-			.push(textInput.value);
+			.unshift(textInput.value);
 			textInput.value='';
 			document.getElementById('checkboxAll').checked=false;
 		}
@@ -63,7 +63,7 @@ function DealListCtrl ($scope) {
 
 		if(mass.indexOf(false) == -1 && mass.length > 0) document.getElementById('checkboxAll').checked=true;
 
-
+		
 	}
 }
 
