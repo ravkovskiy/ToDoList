@@ -14,7 +14,7 @@ function DealListCtrl ($scope) {
 				var check=document.getElementById('checkbox'+i);
 				check.checked=true;
 				check.parentNode.nextSibling.nextSibling.setAttribute('style',
-					'text-decoration:line-through; transition: all .6s;');
+					'text-decoration:line-through; transition: all .03s; color: #259433');
 			}
 		}
 		else {
@@ -22,7 +22,7 @@ function DealListCtrl ($scope) {
 				var check=document.getElementById('checkbox'+i);
 				check.checked=false;
 				check.parentNode.nextSibling.nextSibling.setAttribute('style',
-					'text-decoration:none; transition: all .6s;');
+					'text-decoration:none; transition: all .03s;');
 			}
 		}
 
@@ -30,11 +30,11 @@ function DealListCtrl ($scope) {
 	$scope.checkedCtrl=function($event) {
 		if($event.currentTarget.checked == false) {
 			$event.currentTarget.parentNode.nextSibling.nextSibling.setAttribute('style',
-				'text-decoration:none; transition: all .6s;');
+				'text-decoration:none; transition: all .03s;');
 		}
 		if($event.currentTarget.checked == true) {
 			$event.currentTarget.parentNode.nextSibling.nextSibling.setAttribute('style',
-				'text-decoration:line-through; transition: all .6s;');
+				'text-decoration:line-through; transition: all .03s; color: #259433');
 
 			var mass=[];
 		
