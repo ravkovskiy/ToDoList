@@ -63,6 +63,40 @@ function DealListCtrl ($scope) {
 		if($event.currentTarget.checked == false && document.getElementById('checkboxAll').checked ==true) {
 			document.getElementById('checkboxAll').checked=false;
 		}
+		var oldDeals=[];
+
+		for(var i=0; i<$scope.deals.length; i++) {
+			oldDeals[i]={};
+			oldDeals[i].textToDo=$scope.deals[i].textToDo;
+			oldDeals[i].done=$scope.deals[i].done;
+		}
+		
+		var j=oldDeals.length-1;
+		var k=0;
+
+		for(var i=j; i>=0; i--) {
+			if(oldDeals[i].done == 'true') {
+				$scope.deals[j].textToDo=oldDeals[i].textToDo;
+				$scope.deals[j].done=oldDeals[i].done;
+				document.getElementById(checkbox+'j').checked='true';
+				document.getElementById(checkbox+'j').parentNode.nextSibling.nextSibling.setAttribute('style',
+				'text-decoration:line-through; transition: all .03s; color: #259433');
+				j--;
+				k++;
+			}
+		}
+		j=oldDeals.length-1-k;
+alert('j='+j);	
+		for(var i=oldDeals.length-1; i>=0; i--) {
+			if(oldDeals[i].done == 'false') {
+				$scope.deals[j].textToDo=oldDeals[i].textToDo;
+				$scope.deals[j].done=oldDeals[i].done;
+				document.getElementById(checkbox+'j').checked='false';
+				document.getElementById(checkbox+'j').parentNode.nextSibling.nextSibling.setAttribute('style',
+				'text-decoration:none; transition: all .03s;');
+				j--;
+			}
+		}
 	}
 
 	$scope.closeCtrl=function($event, deal) {
