@@ -1,3 +1,5 @@
+
+
  body {
    background: #04819E;
    color: #04819E;
@@ -146,4 +148,14 @@ img+div pre {
   position: absolute;
   top:80.5%;
   left: -0.4%;
+}
+
+
+ /*Класс для выполненных заданий*/
+.done-true {
+  text-decoration:line-through;
+  color: #259433 !important;
+}
+.done-false {
+  text-decoration:none;
 }

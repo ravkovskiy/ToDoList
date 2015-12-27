@@ -24,32 +24,30 @@ function DealListCtrl ($scope) {
 		if($event.currentTarget.checked == true) {
 			for(var i=0; i < $scope.deals.length; i++) {
 				var check=document.getElementById('checkbox'+i);
-				check.checked=true;
-				check.parentNode.nextSibling.nextSibling.setAttribute('style',
-					'text-decoration:line-through; transition: all .03s; color: #259433');
 				$scope.deals[i].done='true';
+				check.checked=true;
+				
+				
 			}
 		}
 		else {
 			for(var i=0; i < $scope.deals.length; i++) {
 				var check=document.getElementById('checkbox'+i);
-				check.checked=false;
-				check.parentNode.nextSibling.nextSibling.setAttribute('style',
-					'text-decoration:none; transition: all .03s;');
 				$scope.deals[i].done='false';
+				check.checked=false;
+				
+				
 			}
 		}
 
 	}
 	$scope.checkedCtrl=function($event) {
 		if($event.currentTarget.checked == false) {
-			$event.currentTarget.parentNode.nextSibling.nextSibling.setAttribute('style',
-				'text-decoration:none; transition: all .03s;');
+			
 			$scope.deals[$event.currentTarget.id.slice(8)].done='false';
 		}
 		if($event.currentTarget.checked == true) {
-			$event.currentTarget.parentNode.nextSibling.nextSibling.setAttribute('style',
-				'text-decoration:line-through; transition: all .03s; color: #259433');
+			
 			$scope.deals[$event.currentTarget.id.slice(8)].done='true';
 
 			var mass=[];
@@ -63,6 +61,8 @@ function DealListCtrl ($scope) {
 		if($event.currentTarget.checked == false && document.getElementById('checkboxAll').checked ==true) {
 			document.getElementById('checkboxAll').checked=false;
 		}
+
+		/*Следующий код сортирует массив дел, чтобы выполненные дела нахлдились внизу списка*/
 		var oldDeals=[];
 
 		for(var i=0; i<$scope.deals.length; i++) {
@@ -81,8 +81,7 @@ function DealListCtrl ($scope) {
 				$scope.deals[j].done=oldDeals[i].done;
 				$scope.deals[j].$$hashKey=oldDeals[i].hashKey;
 				document.getElementById('checkbox'+j).checked=true;
-				document.getElementById('checkbox'+j).parentNode.nextSibling.nextSibling.setAttribute('style',
-				'text-decoration:line-through; transition: all .03s; color: #259433');
+				
 				j--;
 				k++;
 			}
@@ -94,8 +93,7 @@ function DealListCtrl ($scope) {
 				$scope.deals[j].done=oldDeals[i].done;
 				$scope.deals[j].$$hashKey=oldDeals[i].hashKey;
 				document.getElementById('checkbox'+j).checked=false;
-				document.getElementById('checkbox'+j).parentNode.nextSibling.nextSibling.setAttribute('style',
-				'text-decoration:none; transition: all .03s;');
+				
 				j--;
 			}
 		}

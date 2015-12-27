@@ -32,7 +32,7 @@
       <input type="checkbox" class="checkbox" id="checkbox{{deals.indexOf(deal)}}" ng-click='checkedCtrl($event)'/>
       <label for="checkbox{{deals.indexOf(deal)}}"></label>
     </td>
-    <td>{{deal.textToDo}}</td>
+    <td class='done-{{deal.done}}'>{{deal.textToDo}}</td>
     <td width='30px'>
       <button type="button" class="close" aria-label="Close" ng-click='closeCtrl($event, deal)'><span aria-hidden="true">&times;</span></button>
     </td>
