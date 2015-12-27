@@ -69,6 +69,7 @@ function DealListCtrl ($scope) {
 			oldDeals[i]={};
 			oldDeals[i].textToDo=$scope.deals[i].textToDo;
 			oldDeals[i].done=$scope.deals[i].done;
+			oldDeals[i].hashKey=$scope.deals[i].$$hashKey;
 		}
 		
 		var j=oldDeals.length-1;
@@ -78,21 +79,22 @@ function DealListCtrl ($scope) {
 			if(oldDeals[i].done == 'true') {
 				$scope.deals[j].textToDo=oldDeals[i].textToDo;
 				$scope.deals[j].done=oldDeals[i].done;
-				document.getElementById(checkbox+'j').checked='true';
-				document.getElementById(checkbox+'j').parentNode.nextSibling.nextSibling.setAttribute('style',
+				$scope.deals[j].$$hashKey=oldDeals[i].hashKey;
+				document.getElementById('checkbox'+j).checked=true;
+				document.getElementById('checkbox'+j).parentNode.nextSibling.nextSibling.setAttribute('style',
 				'text-decoration:line-through; transition: all .03s; color: #259433');
 				j--;
 				k++;
 			}
 		}
-		j=oldDeals.length-1-k;
-alert('j='+j);	
+		j=oldDeals.length-1-k;	
 		for(var i=oldDeals.length-1; i>=0; i--) {
 			if(oldDeals[i].done == 'false') {
 				$scope.deals[j].textToDo=oldDeals[i].textToDo;
 				$scope.deals[j].done=oldDeals[i].done;
-				document.getElementById(checkbox+'j').checked='false';
-				document.getElementById(checkbox+'j').parentNode.nextSibling.nextSibling.setAttribute('style',
+				$scope.deals[j].$$hashKey=oldDeals[i].hashKey;
+				document.getElementById('checkbox'+j).checked=false;
+				document.getElementById('checkbox'+j).parentNode.nextSibling.nextSibling.setAttribute('style',
 				'text-decoration:none; transition: all .03s;');
 				j--;
 			}
