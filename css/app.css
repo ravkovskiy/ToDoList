@@ -1,40 +1,149 @@
-
-
-.container1 {margin-left: 25%; margin-right: 25%; width: auto;}
-
-.todo-list li:hover .destroy {display: block;}
-
-.todo-list li .destroy {
-    display: none;
-    position: absolute;
-    top: 0;
-    right: 10px;
-    bottom: -4px;
-    width: 20px;
-    height: 20px;
-    margin: auto 0;
-    font-size: 30px;
-    color: #cc9a9a;
-    margin-bottom: 11px;
-    transition: color 0.2s ease-out;
+ body {
+   background: #04819E;
+   color: #04819E;
+   font-family: Verdana, Arial, Helvetica, sans-serif;
+   font-weight:  bold;
+ }
+ table {
+   width: 43%;
+   font-size: 26px;
+   margin-bottom: 6%;
+   }
+ h1 {
+   margin-top: 4%;
+   text-align: center;
+   color: #fed;
+   margin-bottom: 3%;
+   font-size: 60px;
+   }
+ tr {
+   height: 40px;
+ }
+ .close {
+   font-size: 34px;
+   display: none;
+   font-weight: 300;
+   position: relative;
+   left: -10px;
+   top: 17%;
+    }
+ tr:hover .close {
+   display: inline;
+   position: absolute;
+}
+/* Cначала обозначаем стили для IE8 и более старых версий
+т.е. здесь мы немного облагораживаем стандартный чекбокс. */
+.checkbox {
+  vertical-align: top;
+  margin: 0 3px 0 0;
+  width: 17px;
+  height: 17px;
+}
+/* Это для всех браузеров, кроме совсем старых, которые не поддерживают
+селекторы с плюсом. Показываем, что label кликабелен. */
+.checkbox + label {
+  cursor: pointer;
 }
 
-.todo-list li {
-    position: relative;
-    font-size: 26px;
-    border-bottom: 1px solid #adcdbd;
-    padding-top: 6px;
-    padding-bottom: 6px;
-}
-li {
-    display: list-item;
-    text-align: -webkit-match-parent;
-}
+/* Далее идет оформление чекбокса в современных браузерах, а также IE9 и выше.
+Благодаря тому, что старые браузеры не поддерживают селекторы :not и :checked,
+в них все нижеследующие стили не сработают. */
 
-.todo-list {
-    margin: 0;
-    padding: 0;
-    list-style: none;}
+/* Прячем оригинальный чекбокс. */
+.checkbox:not(checked) {
+  position: absolute;
+  opacity: 0;
+}
+.checkbox:not(checked) + label {
+  position: relative; /* будем позиционировать псевдочекбокс относительно label */
+  padding: 0 0 0 60px; /* оставляем слева от label место под псевдочекбокс */
+}
+/* Оформление первой части чекбокса в выключенном состоянии (фон). */
+.checkbox:not(checked) + label:before {
+  content: '';
+  position: absolute;
+  top: -16px;
+  left: 5px;
+  width: 50px;
+  height: 26px;
+  border-radius: 13px;
+  background: #DEE1EA; /*фон */
+  box-shadow: inset 0 2px 3px rgba(0,0,0,.2);
+}
+/* Оформление второй части чекбокса в выключенном состоянии (переключатель). */
+.checkbox:not(checked) + label:after {
+  content: '';
+  position: absolute;
+  top: -14px;
+  left: 9px;
+  width: 22px;
+  height: 22px;
+  border-radius: 10px;
+  background: #fed;
+  box-shadow: 0 2px 5px rgba(0,0,0,.3);
+  transition: all .03s; /* анимация, чтобы чекбокс переключался плавно */
+}
+/* Меняем фон чекбокса, когда он включен. */
+.checkbox:checked + label:before {
+   background: #9FD468;
+   transition: all .03s;
+}
+/* Сдвигаем переключатель чекбокса, когда он включен. */
+.checkbox:checked + label:after {
+   left: 29px;
+   background: #9E6;
+}
+/* Показываем получение фокуса. */
 
-div h1 {text-align: center; color: #abd}
-li input[type] {width: 20px; height: 20px}
+.close:hover {
+  color: #e10D00;
+  transition: all .6s;
+  cursor: default;
+}
+.close:focus {
+  outline: none;
+}
+/* Стиль для таблицы с расплывающимися неактивными строками*/
+.table_blur {
+  background: #FFC140;
+  border-collapse: collapse;
+  text-align: left;
+}/*Делает четные строки другого цвета*/
+.table_blur tr:nth-child(odd) {
+  background: #5EC4CD;
+}
+.table_blur td {
+  border-bottom: 6px solid #04819E  ;
+  border-top: 6px solid #04819E;
+  padding: 10px 15px;
+  position: relative;
+  transition: all 0.03s ease;
+}
+/*цвет и эффекты на неактивные строки*/ 
+
+.table_blur tbody:hover td {
+  color: transparent;
+  text-shadow: 0 0 1px #04819E;
+}
+/* цвет и эффекты на активную строку*/
+.table_blur tbody:hover tr:hover td {
+  color: #04819E;
+  text-shadow: none;
+}
+#textInput {
+  background: #fed
+}
+img {
+  position: absolute;
+  top: 73%;
+  left: -3%
+}
+img+div pre {
+  color: red;
+  background: none;
+  font-size: 15px;
+  border: none;
+  position: absolute;
+  top:80.5%;
+  left: -0.4%;
+}
