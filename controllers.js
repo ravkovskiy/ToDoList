@@ -117,5 +117,10 @@ function DealListCtrl ($scope) {
 			document.getElementById('img').setAttribute('style', '');
 		}
 	}
+	$scope.fCtrl=function() {
+		alert(1);
+	}
 }
+
+
 

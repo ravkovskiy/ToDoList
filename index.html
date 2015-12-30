@@ -20,6 +20,7 @@
 <body ng-controller='DealListCtrl'>
 <h1>Список дел</h1>
 <table align='center' class="table_blur">
+  
   <tr>
     <td width='30px'>
       <input type="checkbox" class="checkbox" id="checkboxAll" ng-click='checkedAllCtrl($event)'/>
@@ -42,6 +43,21 @@
 <img src="cloud.png" alt="альтернативный текст">
 <div> <pre>Введите запланированные дела<br/>     и нажмите "Ввод"!</pre></div>
 </div>
+
+<table align='center' class='filter' >
+  <tr>
+    <td>
+      <span>Все</span>
+    </td>
+    <td>
+      <span>Сделать</span>
+    </td>
+    <td >
+      <span>Сделано</span>
+    </td>
+  </tr>
+</table>
+
 
 </body>
 </html>

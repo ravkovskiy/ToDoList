@@ -159,3 +159,28 @@ img+div pre {
 .done-false {
   text-decoration:none;
 }
+
+.filter {
+  background-color: #5EC4CD;
+  text-align: center;
+   font-size: 18px;
+   font-weight: 600; 
+  position: relative;
+   margin-top: -4%;
+   width: 30%;
+ }
+.filter tr {
+}
+.filter td {
+  border-bottom: 6px solid #04819E  ;
+  border-top: 6px solid #04819E;
+  border-right: 6px solid #04819E;
+
+  position: relative;
+  margin: 0;
+  width: 24%;
+  cursor: pointer;
+ }
+ .filter td:hover {
+  color: #FFC140;
+ }
