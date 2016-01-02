@@ -30,7 +30,7 @@
   </tr>
   <tr ng-repeat='deal in deals | dealsDone:dealsFilter' class='deals'>
     <td>
-      <input type="checkbox" class="checkbox" id="checkbox{{deals.indexOf(deal)}}" ng-click='checkedCtrl($event)' ng-model='deal.done'/>
+      <input type="checkbox" class="checkbox" id="checkbox{{deals.indexOf(deal)}}" ng-click='checkedCtrl($event)' ng-model="deal.done"/>
       <label for="checkbox{{deals.indexOf(deal)}}"></label>
     </td>
     <td class='done-{{deal.done}}'>{{deal.textToDo}}</td>

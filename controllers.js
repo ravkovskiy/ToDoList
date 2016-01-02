@@ -2,35 +2,34 @@ angular.module('ToDo', []).
   filter('dealsDone', function() {
     return function(deals, dealsFilter) {
     	if(dealsFilter=='all') return deals;
-       		var mas=[];
-    		for (var i=0; i<deals.length; i++) {
-    			if(deals[i].done == dealsFilter) {
-    				mas.push(deals[i]);
-    			}
+       	var mas=[];
+    	for (var i=0; i<deals.length; i++) {
+    		if(deals[i].done == dealsFilter) {
+    			mas.push(deals[i]);
     		}
-    		return mas;
-
-    	
+    	}
+    	return mas;
     }
-  });
+ });
 
 
 
 
-
+/*Объявляем функцию контроллер*/
 function DealListCtrl ($scope) {
 
 	$scope.deals=[];
 	$scope.dealsFilter='all';
-
+/*При вводе новых дел выполняется функция eventsCtrl */
 	$scope.eventsCtrl=function($event) {
 
 		$scope.dealsText=[];
+
 		for(var i=0; i<$scope.deals.length; i++) {
 			$scope.dealsText[i]=$scope.deals[i].textToDo;
 		}
 
-
+		/* textInput это id поля ввода */
 		if($event.keyCode == '13' && !textInput.value == '' && 
 			$scope.dealsText.indexOf(textInput.value) == -1) {$scope.deals.unshift({'textToDo': textInput.value, 'done': false});
 			textInput.value='';
@@ -44,20 +43,12 @@ function DealListCtrl ($scope) {
 	$scope.checkedAllCtrl=function($event) {
 		if($event.currentTarget.checked == true) {
 			for(var i=0; i < $scope.deals.length; i++) {
-				var check=document.getElementById('checkbox'+i);
 				$scope.deals[i].done=true;
-				check.checked=true;
-				
-				
 			}
 		}
 		else {
 			for(var i=0; i < $scope.deals.length; i++) {
-				var check=document.getElementById('checkbox'+i);
-				$scope.deals[i].done=false;
-				check.checked=false;
-				
-				
+				$scope.deals[i].done=false;		
 			}
 		}
 
@@ -66,21 +57,16 @@ function DealListCtrl ($scope) {
 		if($event.currentTarget.checked == false) {
 			
 			$scope.deals[$event.currentTarget.id.slice(8)].done=false;
+			document.getElementById('checkboxAll').checked=false;
 		}
 		if($event.currentTarget.checked == true) {
 			
 			$scope.deals[$event.currentTarget.id.slice(8)].done=true;
 
-			var mass=[];
-		
 			for(var i=0; i < $scope.deals.length; i++) {
-				mass.push(document.getElementById('checkbox'+i).checked);
+				if($scope.deals[i].done == false) return;
 			};
-			if(mass.indexOf(false) == -1) document.getElementById('checkboxAll').checked=true;
-		}
-
-		if($event.currentTarget.checked == false && document.getElementById('checkboxAll').checked ==true) {
-			document.getElementById('checkboxAll').checked=false;
+		    document.getElementById('checkboxAll').checked=true;
 		}
 
 		/*Следующий код сортирует массив дел, чтобы выполненные дела нахлдились внизу списка*/
@@ -90,7 +76,6 @@ function DealListCtrl ($scope) {
 			oldDeals[i]={};
 			oldDeals[i].textToDo=$scope.deals[i].textToDo;
 			oldDeals[i].done=$scope.deals[i].done;
-			oldDeals[i].hashKey=$scope.deals[i].$$hashKey;
 		}
 		
 		var j=oldDeals.length-1;
@@ -100,9 +85,7 @@ function DealListCtrl ($scope) {
 			if(oldDeals[i].done == true) {
 				$scope.deals[j].textToDo=oldDeals[i].textToDo;
 				$scope.deals[j].done=oldDeals[i].done;
-				$scope.deals[j].$$hashKey=oldDeals[i].hashKey;
 				document.getElementById('checkbox'+j).checked=true;
-				
 				j--;
 				k++;
 			}
@@ -112,7 +95,6 @@ function DealListCtrl ($scope) {
 			if(oldDeals[i].done == false) {
 				$scope.deals[j].textToDo=oldDeals[i].textToDo;
 				$scope.deals[j].done=oldDeals[i].done;
-				$scope.deals[j].$$hashKey=oldDeals[i].hashKey;
 				document.getElementById('checkbox'+j).checked=false;
 				
 				j--;
