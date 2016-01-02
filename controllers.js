@@ -32,7 +32,7 @@ function DealListCtrl ($scope) {
 
 
 		if($event.keyCode == '13' && !textInput.value == '' && 
-			$scope.dealsText.indexOf(textInput.value) == -1) {$scope.deals.unshift({'textToDo': textInput.value, 'done': 'false'});
+			$scope.dealsText.indexOf(textInput.value) == -1) {$scope.deals.unshift({'textToDo': textInput.value, 'done': false});
 			textInput.value='';
 			document.getElementById('checkboxAll').checked=false;
 			if(document.getElementById('img').style != 'display: none') {
@@ -45,7 +45,7 @@ function DealListCtrl ($scope) {
 		if($event.currentTarget.checked == true) {
 			for(var i=0; i < $scope.deals.length; i++) {
 				var check=document.getElementById('checkbox'+i);
-				$scope.deals[i].done='true';
+				$scope.deals[i].done=true;
 				check.checked=true;
 				
 				
@@ -54,7 +54,7 @@ function DealListCtrl ($scope) {
 		else {
 			for(var i=0; i < $scope.deals.length; i++) {
 				var check=document.getElementById('checkbox'+i);
-				$scope.deals[i].done='false';
+				$scope.deals[i].done=false;
 				check.checked=false;
 				
 				
@@ -65,11 +65,11 @@ function DealListCtrl ($scope) {
 	$scope.checkedCtrl=function($event) {
 		if($event.currentTarget.checked == false) {
 			
-			$scope.deals[$event.currentTarget.id.slice(8)].done='false';
+			$scope.deals[$event.currentTarget.id.slice(8)].done=false;
 		}
 		if($event.currentTarget.checked == true) {
 			
-			$scope.deals[$event.currentTarget.id.slice(8)].done='true';
+			$scope.deals[$event.currentTarget.id.slice(8)].done=true;
 
 			var mass=[];
 		
@@ -97,7 +97,7 @@ function DealListCtrl ($scope) {
 		var k=0;
 
 		for(var i=j; i>=0; i--) {
-			if(oldDeals[i].done == 'true') {
+			if(oldDeals[i].done == true) {
 				$scope.deals[j].textToDo=oldDeals[i].textToDo;
 				$scope.deals[j].done=oldDeals[i].done;
 				$scope.deals[j].$$hashKey=oldDeals[i].hashKey;
@@ -109,7 +109,7 @@ function DealListCtrl ($scope) {
 		}
 		j=oldDeals.length-1-k;	
 		for(var i=oldDeals.length-1; i>=0; i--) {
-			if(oldDeals[i].done == 'false') {
+			if(oldDeals[i].done == false) {
 				$scope.deals[j].textToDo=oldDeals[i].textToDo;
 				$scope.deals[j].done=oldDeals[i].done;
 				$scope.deals[j].$$hashKey=oldDeals[i].hashKey;
@@ -138,17 +138,14 @@ function DealListCtrl ($scope) {
 			document.getElementById('img').setAttribute('style', '');
 		}
 	}
-	$scope.fCtrl=function() {
-		alert(1);
-	}
 	$scope.all=function() {
 		$scope.dealsFilter='all';
 	}
 	$scope.notDone=function() {
-		$scope.dealsFilter= 'false';
+		$scope.dealsFilter= false;
 	}
 	$scope.done=function() {
-		$scope.dealsFilter= 'true';
+		$scope.dealsFilter= true;
 	}
 }
 
