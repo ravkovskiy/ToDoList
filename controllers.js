@@ -1,6 +1,27 @@
+angular.module('ToDo', []).
+  filter('dealsDone', function() {
+    return function(deals, dealsFilter) {
+    	if(dealsFilter=='all') return deals;
+       		var mas=[];
+    		for (var i=0; i<deals.length; i++) {
+    			if(deals[i].done == dealsFilter) {
+    				mas.push({'textToDo': deals[i].textToDo, 'done': dealsFilter});
+    			}
+    		}
+    		return mas;
+
+    	
+    }
+  });
+
+
+
+
+
 function DealListCtrl ($scope) {
 
 	$scope.deals=[];
+	$scope.dealsFilter='all';
 
 	$scope.eventsCtrl=function($event) {
 
@@ -119,6 +140,15 @@ function DealListCtrl ($scope) {
 	}
 	$scope.fCtrl=function() {
 		alert(1);
+	}
+	$scope.all=function() {
+		$scope.dealsFilter='all';
+	}
+	$scope.notDone=function() {
+		$scope.dealsFilter= 'false';
+	}
+	$scope.done=function() {
+		$scope.dealsFilter= 'true';
 	}
 }
 
