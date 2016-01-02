@@ -5,7 +5,7 @@ angular.module('ToDo', []).
        		var mas=[];
     		for (var i=0; i<deals.length; i++) {
     			if(deals[i].done == dealsFilter) {
-    				mas.push({'textToDo': deals[i].textToDo, 'done': dealsFilter});
+    				mas.push(deals[i]);
     			}
     		}
     		return mas;
