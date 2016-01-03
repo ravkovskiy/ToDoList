@@ -118,6 +118,7 @@ function DealListCtrl ($scope) {
 
 		if($scope.deals.length == 0) {
 			document.getElementById('img').setAttribute('style', '');
+			document.getElementById('checkboxAll').checked=false;
 		}
 	}
 	$scope.all=function() {
