@@ -132,6 +132,7 @@ function DealListCtrl ($scope) {
 	$scope.closeAll=function() {
 		$scope.deals=[];
 		document.getElementById('checkboxAll').checked=false;
+		document.getElementById('img').setAttribute('style', 'display: block');
 	}
 }
 
