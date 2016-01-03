@@ -62,11 +62,11 @@ function DealListCtrl ($scope) {
 		if($event.currentTarget.checked == true) {
 			
 			$scope.deals[$event.currentTarget.id.slice(8)].done=true;
-
+			document.getElementById('checkboxAll').checked=true;
 			for(var i=0; i < $scope.deals.length; i++) {
-				if($scope.deals[i].done == false) return;
+				if($scope.deals[i].done == false) document.getElementById('checkboxAll').checked=false;
 			};
-		    document.getElementById('checkboxAll').checked=true;
+		    
 		}
 
 		/*Следующий код сортирует массив дел, чтобы выполненные дела нахлдились внизу списка*/
