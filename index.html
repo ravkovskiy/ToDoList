@@ -45,13 +45,13 @@
 
 <table align='center' class='filter' >
   <tr>
-    <td ng-click='all()'>
+    <td ng-click='all()' class='all-{{dealsFilter}}'>
       <span>Все</span>
     </td>
-    <td ng-click='notDone()'>
+    <td ng-click='notDone()' class='false-{{dealsFilter}}'>
       <span>Сделать</span>
     </td>
-    <td ng-click='done()'>
+    <td ng-click='done()' class='true-{{dealsFilter}}'>
       <span>Сделано</span>
     </td>
   </tr>
