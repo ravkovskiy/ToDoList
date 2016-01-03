@@ -129,6 +129,10 @@ function DealListCtrl ($scope) {
 	$scope.done=function() {
 		$scope.dealsFilter= true;
 	}
+	$scope.closeAll=function() {
+		$scope.deals=[];
+		document.getElementById('checkboxAll').checked=false;
+	}
 }
 
 
