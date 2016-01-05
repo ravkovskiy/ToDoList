@@ -145,7 +145,7 @@ img {
 .done-true {
   text-decoration:line-through;
   color: #259433 !important;
-  text-shadow: 1px 1px 0 #DEE1EA !important;
+  text-shadow: 3px 3px 0 #DEE1EA !important;
 }
 .done-false {
   text-decoration:none;

@@ -1,5 +1,4 @@
 
-
  body {
    background: #04819E;
    color: #04819E;
@@ -121,19 +120,15 @@
   position: relative;
   transition: all 0.03s ease;
 }
-/*цвет и эффекты на неактивные строки*/ 
 
-.table_blur tbody:hover td {
-  color: transparent;
-  text-shadow: 0 0 1px #04819E;
-}
 /* цвет и эффекты на активную строку*/
 .table_blur tbody:hover tr:hover td {
-  color: #04819E;
-  text-shadow: none;
+  color: transparent;
+  text-shadow: -2px -2px 0 #04819E;
 }
 #textInput {
-  background: #fed
+  background: #fed;
+  color: #04819E;
 }
 img {
   position: absolute;
@@ -145,6 +140,7 @@ img {
 .done-true {
   text-decoration:line-through;
   color: #259433 !important;
+  text-shadow: 1px 1px 0 #DEE1EA !important;
 }
 .done-false {
   text-decoration:none;
