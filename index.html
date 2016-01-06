@@ -1,22 +1,17 @@
 <!doctype html>
 <html ng-app='ToDo'>
+
 <head>
 <meta charset='utf-8'>
-
+<title>Список дел</title>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.29/angular.min.js"></script>
 <!-- Latest compiled and minified CSS -->
-
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-
 <!-- Optional theme -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
-
-<link rel="stylesheet" type="text/css" href="css/app.css">
-
-<script type="text/javascript" src='storage.js'></script>
-
+<link rel="stylesheet" href="css/app.css">
+<script src='storage.js'></script>
 <script src="controllers.js"></script>
-
 </head>
 
 <body ng-controller='DealListCtrl'>
@@ -25,61 +20,48 @@
 
 <table align='center' class="table_blur">
   <tr>
-
     <td width='30px'>
       <input type="checkbox" class="checkbox" id="checkboxAll" ng-click='checkedAllCtrl($event)'/>
       <label for="checkboxAll"></label>
     </td>
-
     <td width='100%'>
       <input id='textInput' placeholder="Что нужно сделать?" ng-keydown='eventsCtrl($event)' size='45'>
       </input>
     </td>
-
     <td width='30px'>
       <button type="button" class="close" aria-label="Close" ng-click='closeAll($event)'>
         <span aria-hidden="true">&times;</span>
       </button>
     </td>
-
   </tr>
-
   <tr ng-repeat='deal in deals | dealsDone:dealsFilter' class='deals'>
-
     <td>
       <input type="checkbox" class="checkbox" id="checkbox{{deals.indexOf(deal)}}" ng-click='checkedCtrl($event)' ng-model="deal.done"/>
       <label for="checkbox{{deals.indexOf(deal)}}"></label>
     </td>
-
     <td class='done-{{deal.done}}'>{{deal.textToDo}}</td>
-
     <td width='30px'>
       <button type="button" class="close" aria-label="Close" ng-click='closeCtrl($event, deal)'><span aria-hidden="true">&times;</span>
       </button>
     </td>
-
   </tr>
 </table>
 
 <div id='img'>
-  <img src="cloud.png" alt="альтернативный текст">
+  <img src="cloud.png" alt="Вводите дела и нажимайте 'Ввод'!">
 </div>
 
 <table align='center' class='filter' >
   <tr>
-
     <td ng-click='all()' class='all-{{dealsFilter}}'>
       <span>Все</span>
     </td>
-
     <td ng-click='notDone()' class='false-{{dealsFilter}}'>
       <span>Сделать</span>
     </td>
-
     <td ng-click='done()' class='true-{{dealsFilter}}'>
       <span>Сделано</span>
     </td>
-
   </tr>
 </table>
 

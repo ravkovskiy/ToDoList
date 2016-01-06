@@ -1,13 +1,9 @@
 restoreSettings = function() {
-	
 	if (!localStorage['saved.settings'] == 'true') {
 	    return false;	
 	} 
-
-
 }
 savedSettings = function(deals) {
-	
 	localStorage['saved.settings'] = 'true';
 	localStorage['numbers.deals'] = deals.length;
 	for (var i = 0; i < deals.length; i++) {
@@ -18,5 +14,4 @@ savedSettings = function(deals) {
 	    String(document.getElementById('checkboxAll').checked);
 	localStorage['display.img'] =
 	    document.getElementById('img').style.display;
-
 }

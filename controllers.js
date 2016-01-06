@@ -1,4 +1,3 @@
-
 angular.module('ToDo', []).
   filter('dealsDone', function() {
     return function(deals, dealsFilter) {
@@ -14,15 +13,9 @@ angular.module('ToDo', []).
     	return mas;
     }
  });
-
-
-
-
 /*Объявляем функцию контроллер*/
 function DealListCtrl ($scope) {
-
 	$scope.dealsFilter = 'all';
-
 	if (restoreSettings()){
 		$scope.deals = [];	
 	} else {
@@ -38,7 +31,6 @@ function DealListCtrl ($scope) {
 		document.getElementById('img').setAttribute('style',
 		    'display: ' + localStorage['display.img']);
 	}
-
 /*При вводе новых дел выполняется функция eventsCtrl */
 	$scope.eventsCtrl = function($event) {
 		$scope.dealsText = [];
@@ -59,7 +51,6 @@ function DealListCtrl ($scope) {
 			savedSettings($scope.deals);
 		}	
 	}
-
 	$scope.checkedAllCtrl = function($event) {
 		if ($event.currentTarget.checked == true) {
 			for (var i = 0; i < $scope.deals.length; i++) {
@@ -72,14 +63,12 @@ function DealListCtrl ($scope) {
 		}
 		savedSettings($scope.deals);
 	}
-
 	$scope.checkedCtrl=function($event) {
 		if ($event.currentTarget.checked == false) {
 			$scope.deals[$event.currentTarget.id.slice(8)].done = false;
 			document.getElementById('checkboxAll').checked = false;
 		}
 		if ($event.currentTarget.checked == true) {
-			
 			$scope.deals[$event.currentTarget.id.slice(8)].done = true;
 			document.getElementById('checkboxAll').checked = true;
 			for (var i = 0; i < $scope.deals.length; i++) {
@@ -87,21 +76,15 @@ function DealListCtrl ($scope) {
 					document.getElementById('checkboxAll').checked = false;
 				}
 			}
-		    
 		}
-		
 		savedSettings($scope.deals);
 	}
-
 	$scope.closeCtrl = function($event, deal) {
-
 		var mass = [];
-		
 		for (var i = 0; i < $scope.deals.length; i++) {
 			if (!document.getElementById('checkbox' + i) == undefined) {
 				mass.push(document.getElementById('checkbox' + i).checked);
-			}
-			
+			}	
 		}
 		mass.splice($scope.deals.indexOf(deal),1);
 		$scope.deals.splice($scope.deals.indexOf(deal),1);
@@ -114,22 +97,18 @@ function DealListCtrl ($scope) {
 		}
 		savedSettings($scope.deals, $scope.dealsFilter);
 	}
-
 	$scope.all = function() {
 		$scope.dealsFilter = 'all';
 		savedSettings($scope.deals);
 	}
-
 	$scope.notDone = function() {
 		$scope.dealsFilter = false;
 		savedSettings($scope.deals);
 	}
-
 	$scope.done = function() {
 		$scope.dealsFilter = true;
 		savedSettings($scope.deals);
 	}
-
 	$scope.closeAll = function() {
 		if ($scope.dealsFilter == 'all') {
 			$scope.deals = [];
@@ -158,11 +137,5 @@ function DealListCtrl ($scope) {
 				document.getElementById('checkboxAll').checked = true;
 			}
 		}
-		
-		
 	}
-
 }
-
-
-
